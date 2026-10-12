@@ -112,8 +112,8 @@ This plan details:
   ```
 
 ### Phase 5: Verification & Quality Assurance Checklist
-- [ ] Ensure all references to `https://bolt.new/static/og_default.png` and `/vite.svg` are removed.
-- [ ] Verify image dimensions (1200x630) and visual clarity on light/dark messaging platforms (Slack, Discord, iMessage, LinkedIn).
-- [ ] Validate HTML syntax and ensure no breaking Vite build issues (`npm run build`).
-- [ ] Confirm JSON-LD validity against Schema.org validators.
-- [ ] Validate responsive favicon rendering in Chrome, Safari, and Firefox browser tabs.
+- [x] Ensure all references to `https://bolt.new/static/og_default.png` and `/vite.svg` are removed.
+- [x] Verify image dimensions (1200x630) and visual clarity on light/dark messaging platforms (Slack, Discord, iMessage, LinkedIn).
+- [x] Validate HTML syntax and ensure no breaking Vite build issues (`npm run build`).
+- [x] Confirm JSON-LD validity against Schema.org validators.
+- [x] Validate responsive favicon rendering in Chrome, Safari, and Firefox browser tabs.
