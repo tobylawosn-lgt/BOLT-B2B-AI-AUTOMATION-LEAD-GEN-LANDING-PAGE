@@ -1,12 +1,14 @@
+
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
 import { X, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+
+
 
 type FormState = "idle" | "submitting" | "success" | "error";
+
 
 export default function AuditFormModal({
   open,
@@ -25,6 +27,7 @@ export default function AuditFormModal({
     biggest_friction: "",
   });
 
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -36,6 +39,7 @@ export default function AuditFormModal({
     };
   }, [open]);
 
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape" && open) onClose();
@@ -44,7 +48,9 @@ export default function AuditFormModal({
     return () => window.removeEventListener("keydown", handleEsc);
   }, [open, onClose]);
 
+
   if (!open) return null;
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,13 +72,16 @@ export default function AuditFormModal({
     }
   };
 
+
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+
   const inputClass =
     "w-full bg-neutral-900/60 border border-neutral-800 rounded-xl px-4 py-3 text-sm text-white placeholder:text-neutral-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30 transition-all duration-200";
   const labelClass = "text-xs font-medium text-neutral-400 mb-1.5 block";
+
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -81,6 +90,7 @@ export default function AuditFormModal({
         className="absolute inset-0 bg-black/70 backdrop-blur-md animate-fadeIn"
         onClick={onClose}
       />
+
 
       {/* Modal */}
       <div
@@ -121,6 +131,7 @@ export default function AuditFormModal({
               </button>
             </div>
 
+
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -146,6 +157,7 @@ export default function AuditFormModal({
                   />
                 </div>
               </div>
+
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -174,6 +186,7 @@ export default function AuditFormModal({
                 </div>
               </div>
 
+
               <div>
                 <label className={labelClass}>Current Tools & Systems</label>
                 <input
@@ -184,6 +197,7 @@ export default function AuditFormModal({
                   className={inputClass}
                 />
               </div>
+
 
               <div>
                 <label className={labelClass}>Biggest Operational Friction</label>
@@ -196,6 +210,7 @@ export default function AuditFormModal({
                 />
               </div>
 
+
               {formState === "error" && (
                 <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
                   <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
@@ -204,6 +219,7 @@ export default function AuditFormModal({
                   </p>
                 </div>
               )}
+
 
               <button
                 type="submit"
@@ -230,6 +246,7 @@ export default function AuditFormModal({
                   </>
                 )}
               </button>
+
 
               <p className="text-xs text-neutral-600 text-center">
                 Your information is only used to conduct the audit. No spam, ever.
