@@ -30,3 +30,4 @@ Building on the initial dynamic visuals, this phase focuses on typography, deep 
 ### 6. Refined Button States
 - [ ] Add an automated, subtle "sheen" or light sweep animation that periodically passes over the primary CTA buttons.
 - [ ] This continuously draws the eye to the button even when the user isn't hovering over it.
+im the guy
